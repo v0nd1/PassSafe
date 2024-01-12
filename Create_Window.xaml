@@ -1,0 +1,65 @@
+﻿<Window x:Class="PassSafe.Create_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PassSafe"
+        mc:Ignorable="d"
+        Title="Создание пароля" Height="400" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#FF2AAFE5" Offset="0.513"/>
+            <GradientStop Color="#FF020202"/>
+            <GradientStop Color="#FFC0ECFD"/>
+            <GradientStop Color="#FF1D769A" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="500"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0">
+            <Image
+            Source="/Images/choose_photo.png" 
+            Margin="20,70,398,328" />
+            <TextBlock 
+            FontSize="15"
+            Text="Выберите фото"
+            Margin="10,192,326,262"/>
+
+            <TextBox 
+            Margin="272,144,44,338"/>
+            <TextBlock 
+            FontSize="15"
+            Text="Введите логин:"
+            Margin="144,100,238,359"/>
+            <TextBlock 
+            FontSize="15"
+            Text="Введите пароль:"
+            Margin="139,137,233,320"/>
+            <TextBox
+            Height="20"
+            Margin="270,100,44,380"/>
+            <Button 
+            Content="Добавить"
+            Width="100" 
+            Margin="344,192,56,274"/>
+            <Button 
+            Background="LightGreen"
+            Height="50"
+            Content="Создать" 
+            Margin="163,266,121,184" Click="Button_Click"/>
+            <TextBlock 
+            Background="Gray"
+            Height="20"
+            Width="130"
+            Text="Выбрать категорию ∨ " Margin="314,22,56,442"/>
+        </Grid>
+
+
+
+    </Grid>
+</Window>

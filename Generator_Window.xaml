@@ -1,0 +1,41 @@
+﻿<Window x:Class="PassSafe.Generator_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PassSafe"
+        mc:Ignorable="d"
+        Title="Генератор" Height="300" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#FF2AAFE5" Offset="0.513"/>
+            <GradientStop Color="#FF020202"/>
+            <GradientStop Color="#FFC0ECFD"/>
+            <GradientStop Color="#FF1D769A" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <TextBlock
+                Text="Кол-во символов" Margin="65,39,175,241"/>
+
+            <TextBox Margin="194,32,112,234"/>
+            <TextBox Margin="100,159,87,107"/>
+            <Button
+                Content="Сгенерировать"
+                Margin="125,110,112,170"/>
+            <Button 
+                Content="Назад"
+                Margin="142,231,121,49" Click="Button_Click"/>
+
+        </Grid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,53 @@
+﻿<Page x:Class="PassSafe.SocS"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PassSafe"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SocS">
+
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="0" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
+            <Image Source="/Images/telegram.png" Width="40" Height="40"/>
+            <TextBlock Text="Telegram" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
+            <Image Source="/Images/Facebook.png" Width="40" Height="40"/>
+            <TextBlock Text="Facebook" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
+            <Image Source="/Images/vk.png" Width="40" Height="40"/>
+            <TextBlock Text="VK" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="3" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
+            <Image Source="/Images/twitch.png" Width="40" Height="40"/>
+            <TextBlock Text="Twitch" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+
+
+
+
+    </Grid>
+</Page>
