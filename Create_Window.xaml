@@ -15,51 +15,49 @@
             <GradientStop Color="#FF1D769A" Offset="1"/>
         </LinearGradientBrush>
     </Window.Background>
+    <Window.Resources>
+        <ImageBrush x:Key="PlaceImage" ImageSource="/Images/choose_photo.png" />
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="500"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0">
-            <Image
-            Source="/Images/choose_photo.png" 
-            Margin="20,70,398,328" />
-            <TextBlock 
-            FontSize="15"
-            Text="Выберите фото"
-            Margin="10,192,326,262"/>
 
-            <TextBox 
-            Margin="272,144,44,338"/>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Button
+                BorderThickness="0"
+                Background="{StaticResource PlaceImage}"
+                Width="100"
+                Height="100"
+                Margin="0,50,0,0">
+                <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True" >
+                            <Setter Property="Background" Value="{StaticResource PlaceImage}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                </Button.Style>
+             
+            </Button>
+            
             <TextBlock 
-            FontSize="15"
-            Text="Введите логин:"
-            Margin="144,100,238,359"/>
-            <TextBlock 
-            FontSize="15"
-            Text="Введите пароль:"
-            Margin="139,137,233,320"/>
-            <TextBox
-            Height="20"
-            Margin="270,100,44,380"/>
-            <Button 
-            Content="Добавить"
-            Width="100" 
-            Margin="344,192,56,274"/>
-            <Button 
-            Background="LightGreen"
-            Height="50"
-            Content="Создать" 
-            Margin="163,266,121,184" Click="Button_Click"/>
-            <TextBlock 
-            Background="Gray"
-            Height="20"
-            Width="130"
-            Text="Выбрать категорию ∨ " Margin="314,22,56,442"/>
+                FontSize="15"
+                Width="110"
+                Height="20"
+                Margin="0,0,0,100"
+                Text="Выберите фото" /> 
         </Grid>
 
 
-
     </Grid>
+    
 </Window>

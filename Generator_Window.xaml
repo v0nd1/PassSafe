@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PassSafe"
         mc:Ignorable="d"
-        Title="Генератор" Height="300" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Генератор" Height="250" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
@@ -18,24 +18,31 @@
     <Grid>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
-            <TextBlock
-                Text="Кол-во символов" Margin="65,39,175,241"/>
+        <!-- Row 1 -->
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Margin="20,5,20,5">
+            <TextBlock Text="Кол-во символов" Height="17" FontSize="15" />
+            <TextBox x:Name="CharacterCountTextBox" Height="23" Width="24" Margin="10,0,0,0"/>
+        </StackPanel>
 
-            <TextBox Margin="194,32,112,234"/>
-            <TextBox Margin="100,159,87,107"/>
-            <Button
-                Content="Сгенерировать"
-                Margin="125,110,112,170"/>
-            <Button 
-                Content="Назад"
-                Margin="142,231,121,49" Click="Button_Click"/>
+        <!-- Row 2 -->
+        <TextBlock Grid.Row="1" Grid.Column="1" Height="17" Width="90" FontSize="15" Text="Скопировать" Margin="0, 10, 0, 50"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" Height="20" Width="120" Background="White" Margin="0, 20, 0, 0"/>
 
-        </Grid>
+        <!-- Row 3 -->
+        <Button Grid.Row="2" Grid.Column="1" FontSize="15" Content="Сгенерировать" Margin="39,30,39,-66"/>
+
+
 
     </Grid>
 </Window>

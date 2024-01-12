@@ -26,6 +26,7 @@
   <ItemGroup>
     <None Remove="Icon\logoReg.png" />
     <None Remove="Images\bd.png" />
+    <None Remove="Images\choose_photo.png" />
     <None Remove="Images\email.png" />
     <None Remove="Images\facebook.png" />
     <None Remove="Images\github.png" />
@@ -45,6 +46,7 @@
 
   <ItemGroup>
     <Resource Include="Images\bd.png" />
+    <Resource Include="Images\choose_photo.png" />
     <Resource Include="Images\logoReg.png" />
     <Resource Include="Images\email.png" />
     <Resource Include="Images\facebook.png" />
