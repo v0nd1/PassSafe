@@ -40,11 +40,23 @@
                 FontWeight="SemiBold"
                 Margin="68,53,168,159"/>
 
+            <TextBox
+                x:Name="TextBox"
+                Height="40" 
+                Width="228" 
+                MaxLength="50"
+                HorizontalAlignment="Center" 
+                Background="#FF9ADDF7"
+                VerticalContentAlignment="Center"
+                FontSize="20" Margin="0,74,0,114"
+            />
+
             <PasswordBox 
                 x:Name="PassBox"
                 Height="40" 
                 Width="228" 
                 MaxLength="50"
+                PasswordChar="*"
                 HorizontalAlignment="Center" 
                 Background="#FF9ADDF7"
                 VerticalContentAlignment="Center"
@@ -54,6 +66,7 @@
                 x:Name="CheckPass"
                 Content="Показать пароль" 
                 Margin="68,119,155,73"
+                Click="CheckBox_Click"
                 />
 
             <Button 
