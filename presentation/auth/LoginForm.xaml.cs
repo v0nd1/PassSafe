@@ -24,6 +24,7 @@ namespace PassSafe
         public LoginForm()
         {
             InitializeComponent();
+            //TextBox.Visibility = Visibility.Hidden;
         }
 
         private string stored_pass = "dima";
@@ -31,31 +32,35 @@ namespace PassSafe
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
             var checkBox = sender as CheckBox;
-            if (checkBox.IsChecked.Value)
+            if (checkBox != null && checkBox.IsChecked.HasValue)
             {
-                TextBox.Text = PassBox.Password; // скопируем в TextBox из PasswordBox
-                TextBox.Visibility = Visibility.Visible; // TextBox - отобразить
-                PassBox.Visibility = Visibility.Hidden; // PasswordBox - скрыть
-            }
-            else
-            {
-                PassBox.Password = TextBox.Text; // скопируем в PasswordBox из TextBox 
-                TextBox.Visibility = Visibility.Hidden; // TextBox - скрыть
-                PassBox.Visibility = Visibility.Visible; // PasswordBox - отобразить
+                if (checkBox.IsChecked.Value)
+                {
+                    TextBox.Text = PassBox.Password; // скопируем в TextBox из PasswordBox
+                    TextBox.Visibility = Visibility.Visible; // TextBox - отобразить
+                    PassBox.Visibility = Visibility.Hidden; // PasswordBox - скрыть
+                }
+                else
+                {
+                    PassBox.Password = TextBox.Text; // скопируем в PasswordBox из TextBox 
+                    TextBox.Visibility = Visibility.Hidden; // TextBox - скрыть
+                    PassBox.Visibility = Visibility.Visible; // PasswordBox - отобразить
+                }
             }
         }
+
 
         private void Login_Button(object sender, RoutedEventArgs e)
         {
             var enteredPass = PassBox.Password;
+            var enteredTextPass = TextBox.Text;
 
-            if(enteredPass != stored_pass)
+            if (enteredPass != stored_pass && enteredTextPass != stored_pass)
             {
                 MessageBox.Show("Ошибка пароля");
             }
             else
             {
-                
                 MenuWindow menuWindow = new MenuWindow();
                 menuWindow.Show();
                 Close();
