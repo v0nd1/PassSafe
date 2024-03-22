@@ -97,7 +97,7 @@
                     FontWeight="ExtraLight"
                     FontSize="20"
                     HorizontalAlignment="Center"/>
-                
+
                 <Image  
                     Height="20"
                     Margin="0,5,0,10"
@@ -105,12 +105,8 @@
                     Source="/Images/bad.png" 
                     Stretch="Fill"/>
             </StackPanel>
-            
+
         </Grid>
-
-           
-         
-
 
     </Grid>
 </Window>
