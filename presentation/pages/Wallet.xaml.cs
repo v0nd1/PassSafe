@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PassSafe.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace PassSafe
         public Wallet()
         {
             InitializeComponent();
+            DataContext = new ItemsViewModel();
         }
     }
 }

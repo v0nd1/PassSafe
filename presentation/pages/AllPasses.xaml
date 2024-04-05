@@ -2,7 +2,7 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft .com/expression/blend/2008" 
       xmlns:local="clr-namespace:PassSafe"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
@@ -10,25 +10,21 @@
 
     <Grid Background="Transparent">
         <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ItemsControl ItemsSource="{Binding PassItems}">
+            <ItemsControl ItemsSource="{Binding AllPassItems}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel
-                            Margin="0 0 0 0"
-                            Orientation="Horizontal" 
-                            ItemWidth="120" 
-                            ItemHeight="100"
-                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" />
-                        <!-- WrapPanel с фиксированными размерами элементов и привязкой ширины к ширине ScrollViewer для правильного отображения прокрутки -->
+                        <WrapPanel Orientation="Horizontal" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
-                    
                     <DataTemplate>
-                        <Button Background="Transparent" BorderThickness="0">
-                            <StackPanel Orientation="Vertical" Margin="0 0 0 0" Background="Transparent">
-                                <Image Source="{Binding ImageSource}" Width="60" Height="60" HorizontalAlignment="Center"/>
-                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                        <Button Command="{Binding DataContext.ShowPassItemInfoCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                    CommandParameter="{Binding}">
+                            <!-- Ваш шаблон элемента здесь -->
+                            <StackPanel>
+                                <Image Source="{Binding ImageSource}" Width="50" Height="50"/>
+                                <TextBlock Text="{Binding Title}"/>
+                                <!-- Другие элементы для отображения информации о PassItem -->
                             </StackPanel>
                         </Button>
                     </DataTemplate>

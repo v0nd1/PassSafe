@@ -9,75 +9,31 @@
       Title="Fav">
 
     <Grid Background="Transparent">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding FavoritePassItems}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel
+                            Margin="0 0 0 0"
+                            Orientation="Horizontal" 
+                            ItemWidth="120" 
+                            ItemHeight="100"
+                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" />
+                        <!-- WrapPanel с фиксированными размерами элементов и привязкой ширины к ширине ScrollViewer для правильного отображения прокрутки -->
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-        </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
-        <StackPanel Grid.Row="0" Grid.Column="0" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/telegram.png" Width="40" Height="40"/>
-            <TextBlock Text="Telegram" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="1" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/email.png" Width="40" Height="40"/>
-            <TextBlock Text="Mail" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="2" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/Facebook.png" Width="40" Height="40"/>
-            <TextBlock Text="Facebook" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="3" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/github.png" Width="40" Height="40"/>
-            <TextBlock Text="Git" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="4" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/gmail.png" Width="40" Height="40"/>
-            <TextBlock Text="Gmail" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="5" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/google.png" Width="40" Height="40"/>
-            <TextBlock Text="Google" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="6" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/instagram.png" Width="40" Height="40"/>
-            <TextBlock Text="Instagram" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="7" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/logo.png" Width="40" Height="40"/>
-            <TextBlock Text="Figma" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="0" Grid.Column="8" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/twitch.png" Width="40" Height="40"/>
-            <TextBlock Text="Twitch" HorizontalAlignment="Center"/>
-        </StackPanel>
-
-
-
-        <StackPanel Grid.Row="1" Grid.Column="0" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/vk.png" Width="40" Height="40"/>
-            <TextBlock Text="VK" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Width="50" Height="80" Orientation="Vertical" Margin="0 5 0 0">
-            <Image Source="/Images/unlock.png" Width="40" Height="40"/>
-            <TextBlock Text="Aliexpr" HorizontalAlignment="Center"/>
-        </StackPanel>
-
-        
-
+                    <DataTemplate>
+                        <Button Background="Transparent" BorderThickness="0">
+                            <StackPanel Orientation="Vertical" Margin="0 0 0 0" Background="Transparent">
+                                <Image Source="{Binding ImageSource}" Width="60" Height="60" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                            </StackPanel>
+                        </Button>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </Page>
