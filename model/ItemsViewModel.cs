@@ -233,6 +233,98 @@ namespace PassSafe.model
                     Password = "1234",
                     Login = "Huggy"
                 },
+                  new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                    new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                      new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                        new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                          new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                            new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                              new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                              new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                              new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                              new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                              new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                              new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+                              new PassItem
+                {
+                    Title = "ОГО",
+                    ImageSource = "/Images/telegram.png",
+                    Password = "1234",
+                    Login = "Huggy"
+                },
+
             };
             СardsPassItems = new ObservableCollection<PassItem>
             {
