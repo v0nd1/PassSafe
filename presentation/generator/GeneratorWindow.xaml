@@ -31,18 +31,39 @@
 
         <!-- Row 1 -->
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Margin="20,5,20,5">
-            <TextBlock Text="Кол-во символов" Height="17" FontSize="15" />
-            <TextBox x:Name="CharacterCountTextBox" Height="23" Width="24" Margin="10,0,0,0"/>
+            <TextBlock Text="Кол-во символов" Height="Auto" FontSize="15" VerticalAlignment="Center"/>
+            <TextBox
+                x:Name="CharacterCountTextBox" 
+                Height="23"
+                Width="24"
+                Margin="10,0,0,0"
+                VerticalContentAlignment="Center"
+                />
         </StackPanel>
 
         <!-- Row 2 -->
-        <TextBlock Grid.Row="1" Grid.Column="1" Height="17" Width="90" FontSize="15" Text="Скопировать" Margin="0, 10, 0, 50"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" Height="20" Width="120" Background="White" Margin="0, 20, 0, 0"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Height="Auto" Width="90" FontSize="15" Text="Скопировать" Margin="0, 10, 0, 50"/>
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="1" 
+            FontSize="15"
+            Height="20" 
+            Width="120" 
+            Background="White" 
+            Margin="0, 20, 0, 0"
+            x:Name="CopyBox"
+            Text=""
+            MouseLeftButtonDown="CopyBox_MouseLeftButtonDown"
+            />
 
         <!-- Row 3 -->
-        <Button Grid.Row="2" Grid.Column="1" FontSize="15" Content="Сгенерировать" Margin="39,30,39,-66"/>
-
-
-
+        <Button 
+            Grid.Row="2"
+            Grid.Column="1"
+            FontSize="15" 
+            Content="Сгенерировать"
+            Margin="39,30,39,-66"
+            Click="Generate_Password"
+            />
     </Grid>
 </Window>
