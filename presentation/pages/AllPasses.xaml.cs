@@ -1,4 +1,5 @@
-﻿using PassSafe.model;
+﻿using PassSafe.data.events;
+using PassSafe.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,14 @@ namespace PassSafe
     /// </summary>
     public partial class AllPasses : Page
     {
+        private ItemsViewModel _viewModel;
         public AllPasses()
         {
             InitializeComponent();
-            DataContext = new ItemsViewModel();
+            _viewModel = new ItemsViewModel();
+            DataContext = _viewModel;
         }
+
+
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using PassSafe.data.events;
+using PassSafe.model;
+using System.Windows;
 
 namespace PassSafe
 {
@@ -7,12 +9,15 @@ namespace PassSafe
     /// </summary>
     public partial class MenuWindow : Window
     {
+
+        private ItemsViewModel _viewModel;
         public MenuWindow()
         {
             InitializeComponent();
             FramePass.Content = new AllPasses();
+            _viewModel = new ItemsViewModel();
+            DataContext = _viewModel;
         }
-
         private void Page2_Click(object sender, RoutedEventArgs e)
         {
             FramePass.Content = new Fav();

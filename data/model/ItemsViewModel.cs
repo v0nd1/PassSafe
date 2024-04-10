@@ -1,17 +1,24 @@
-﻿using System;
+﻿using PassSafe.data.events;
+using Prism.Commands;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows;
 using System.Windows.Input;
 
 namespace PassSafe.model
 {
     public class ItemsViewModel : INotifyPropertyChanged
     {
+
         public event PropertyChangedEventHandler PropertyChanged;
+
+
 
         private ObservableCollection<PassItem> allPassItems;
         private ObservableCollection<PassItem> favoritePassItems;
@@ -19,7 +26,6 @@ namespace PassSafe.model
         private ObservableCollection<PassItem> socsPassItem;
         private ObservableCollection<PassItem> systemsPassItem;
         private ObservableCollection<PassItem> walletPassItem;
-
         public ObservableCollection<PassItem> AllPassItems
         {
             get { return allPassItems; }
@@ -29,7 +35,6 @@ namespace PassSafe.model
                 OnPropertyChanged(nameof(AllPassItems));
             }
         }
-
         public ObservableCollection<PassItem> FavoritePassItems
         {
             get { return favoritePassItems; }
@@ -39,7 +44,6 @@ namespace PassSafe.model
                 OnPropertyChanged(nameof(FavoritePassItems));
             }
         }
-
         public ObservableCollection<PassItem> СardsPassItems
         {
             get { return cardsPassItems; }
@@ -49,7 +53,6 @@ namespace PassSafe.model
                 OnPropertyChanged(nameof(СardsPassItems));
             }
         }
-
         public ObservableCollection<PassItem> SystemsPassItem
         {
             get { return systemsPassItem; }
@@ -68,7 +71,6 @@ namespace PassSafe.model
                 OnPropertyChanged(nameof(SocsPassItem));
             }
         }
-
         public ObservableCollection<PassItem> WalletPassItem
         {
             get { return walletPassItem; }
@@ -78,6 +80,7 @@ namespace PassSafe.model
                 OnPropertyChanged(nameof(WalletPassItem));
             }
         }
+
 
         public ItemsViewModel()
         {
@@ -425,6 +428,7 @@ namespace PassSafe.model
 
 
         }
+
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

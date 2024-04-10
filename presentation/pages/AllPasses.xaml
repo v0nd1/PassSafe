@@ -13,20 +13,26 @@
             <ItemsControl ItemsSource="{Binding AllPassItems}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Horizontal" />
+                        <WrapPanel 
+                            Orientation="Horizontal"
+                            Margin="0 0 0 0"
+                            ItemWidth="120" 
+                            ItemHeight="100"
+                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Button Command="{Binding DataContext.ShowPassItemInfoCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
-                    CommandParameter="{Binding}">
-                            <!-- Ваш шаблон элемента здесь -->
-                            <StackPanel>
-                                <Image Source="{Binding ImageSource}" Width="50" Height="50"/>
-                                <TextBlock Text="{Binding Title}"/>
-                                <!-- Другие элементы для отображения информации о PassItem -->
+                        <Button 
+                            Background="Transparent"
+                            BorderThickness="0">   
+                            <StackPanel Orientation="Vertical" Margin="0 0 0 0" Background="Transparent">
+                                <Image Source="{Binding ImageSource}" Width="60" Height="60" HorizontalAlignment="Center"/>
+                                <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
+
+
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
