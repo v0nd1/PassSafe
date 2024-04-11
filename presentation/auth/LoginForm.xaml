@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PassSafe"
         mc:Ignorable="d"
-        Title="Вход" Height="338" Width="365" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Вход" Height="265" Width="365" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
@@ -20,7 +20,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Grid Name="LogoCont" Grid.Row="0">
@@ -32,13 +31,13 @@
 
 
 
-        <Grid Name="Form" Grid.Row="2">
+        <Grid Name="Form" Grid.Row="1">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
 
                 <TextBlock 
                     Text="Введите пароль:"
                     Margin="0, 0, 0, 10"
-                    FontWeight="SemiBold"/> 
+                    FontWeight="SemiBold"/>
 
                 <TextBox
                     x:Name="TextBox"
@@ -51,8 +50,8 @@
                     Margin="0, 0, 0, 0"
                     FontSize="20"/>
 
-                
-                
+
+
                 <PasswordBox 
                     x:Name="PassBox"
                     Height="40" 
@@ -71,42 +70,33 @@
                     Margin="0, 0, 0, 10"
                     Click="CheckBox_Click"/>
 
+
+                
                 <Button 
                     Content="Войти в БД"
                     FontSize="13"
                     FontWeight="DemiBold"
                     HorizontalAlignment="Center"
                     Width="88" Click="Login_Button"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock>
+                            Нет аккаунта?
+                    </TextBlock>
+                    <Button 
+                            BorderThickness="0"
+                            Height="Auto"
+                            Width="Auto"
+                            Click="To_Reg_Button"
+                            Background="Transparent">
+                        <TextBlock HorizontalAlignment="Center">
+                                Войти
+                        </TextBlock>
+                    </Button>
+                </StackPanel>
 
             </StackPanel>
-            
-
-            
-
         </Grid>
 
-        <Grid Grid.Row="1">
-            <StackPanel
-                Margin="0 0 0 20"
-                Orientation="Horizontal"
-                VerticalAlignment="Center" 
-                HorizontalAlignment="Center">
-                <TextBlock 
-                    Text="Flash Не обнаружен"
-                    Margin="0,0,5,10"
-                    FontWeight="ExtraLight"
-                    FontSize="20"
-                    HorizontalAlignment="Center"/>
-
-                <Image  
-                    Height="20"
-                    Margin="0,5,0,10"
-                    Width="20"
-                    Source="/Images/bad.png" 
-                    Stretch="Fill"/>
-            </StackPanel>
-
-        </Grid>
 
     </Grid>
 </Window>

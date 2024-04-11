@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PassSafe.presentation.auth;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,15 +20,52 @@ namespace PassSafe
     /// </summary>
     public partial class LoginForm : Window
     {
-
-        
         public LoginForm()
         {
             InitializeComponent();
-            //TextBox.Visibility = Visibility.Hidden;
+            PassBox.KeyDown += PassBox_KeyDown;
+            TextBox.KeyDown += TextBox_KeyDown;
         }
 
-        private string stored_pass = "dima";
+        private string stored_pass;
+
+        public void SetPassword(string password)
+        {
+            stored_pass = password;
+        }
+
+        private void PassBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                TryLogin();
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                TryLogin();
+            }
+        }
+
+        private void TryLogin()
+        {
+            var enteredPass = PassBox.Password;
+            var enteredTextPass = TextBox.Text;
+
+            if (enteredPass != stored_pass && enteredTextPass != stored_pass)
+            {
+                MessageBox.Show("Ошибка пароля");
+            }
+            else
+            {
+                MenuWindow menuWindow = new MenuWindow();
+                menuWindow.Show();
+                Close();
+            }
+        }
 
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
@@ -36,19 +74,24 @@ namespace PassSafe
             {
                 if (checkBox.IsChecked.Value)
                 {
-                    TextBox.Text = PassBox.Password; // скопируем в TextBox из PasswordBox
-                    TextBox.Visibility = Visibility.Visible; // TextBox - отобразить
-                    PassBox.Visibility = Visibility.Hidden; // PasswordBox - скрыть
+                    TextBox.Text = PassBox.Password; 
+                    TextBox.Visibility = Visibility.Visible; 
+                    PassBox.Visibility = Visibility.Hidden;
                 }
                 else
                 {
-                    PassBox.Password = TextBox.Text; // скопируем в PasswordBox из TextBox 
-                    TextBox.Visibility = Visibility.Hidden; // TextBox - скрыть
-                    PassBox.Visibility = Visibility.Visible; // PasswordBox - отобразить
+                    PassBox.Password = TextBox.Text; 
+                    TextBox.Visibility = Visibility.Hidden; 
+                    PassBox.Visibility = Visibility.Visible; 
                 }
             }
         }
-
+        private void To_Reg_Button(object sender, RoutedEventArgs e)
+        {
+            Registration registration = new Registration();
+            registration.Show();
+            Close();
+        }
 
         private void Login_Button(object sender, RoutedEventArgs e)
         {

@@ -193,7 +193,7 @@
                 HorizontalAlignment="Left" 
                 Width="385">
                 <StackPanel 
-                    Orientation="Horizontal" Width="156"
+                    Orientation="Horizontal" Width="370"
                     HorizontalAlignment="Left"
                     Margin="10 10 0 0 ">
                     <Image 
@@ -206,6 +206,10 @@
                         Margin="7 0 0 0"
                         FontSize="20"
                         FontWeight="ExtraBlack" Height="26"/>
+                    <Button
+                        Margin="200 0 0 30"
+                        Height="20"
+                        Width="20"/>
                 </StackPanel>
                 <TextBlock 
                     Margin=" 0 0 300 10"

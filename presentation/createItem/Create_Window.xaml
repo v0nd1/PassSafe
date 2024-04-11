@@ -20,9 +20,9 @@
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="170"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="200"/>
+            <RowDefinition Height="170"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -30,80 +30,133 @@
             <ColumnDefinition Width="350"/>
         </Grid.ColumnDefinitions>
 
+        
+        <StackPanel
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Orientation="Horizontal"
+            Grid.Row="0" 
+            Grid.Column="1" >
+            <TextBlock
+                FontSize="15"
+                Margin="0 0 10 0"
+                VerticalAlignment="Center">
+                Выберите категорию:
+            </TextBlock>
+            <ComboBox
+                Height="25"
+                Width="125"
+                Margin="0 0 30 0">
+                <ComboBoxItem>Все</ComboBoxItem>
+                <ComboBoxItem>Избранное</ComboBoxItem>
+                <ComboBoxItem>Соц.Сети</ComboBoxItem>
+                <ComboBoxItem>Карты</ComboBoxItem>
+                <ComboBoxItem>Кошельки</ComboBoxItem>
+                <ComboBoxItem>Системы</ComboBoxItem>
+               
+            </ComboBox>
+        </StackPanel>
+        
+        
 
-        <TextBlock
-            Grid.Row="0" Grid.Column="1"
-            Background="Gray"
-            FontSize="15"
-            Height="20"
-            Width="170"
-            Text="Выбрать категорию ∨ " Margin="170,5,10,5"/>
-
-
-        <Button
-            Grid.Row="1" Grid.Column="0"
+        <StackPanel 
+            Grid.Row="1" 
+            Grid.Column="0" 
+            VerticalAlignment="Center">
+            <TextBlock 
+                FontSize="15"
+                Width="110"
+                Height="20"
+                Text="Выберите фото" 
+                Margin="0 0 0 10"/>
+            <Button
+                Grid.Row="1" Grid.Column="0"
                 BorderThickness="0"
                 Background="{StaticResource PlaceImage}"
                 Width="100"
-                Height="100"
-                Margin="0,50,0,0">
-            <Button.Style>
-                <Style TargetType="Button">
-                    <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True" >
-                            <Setter Property="Background" Value="{StaticResource PlaceImage}"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
+                Height="100">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True" >
+                                <Setter Property="Background" Value="{StaticResource PlaceImage}"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
 
-        </Button>
+            </Button>
+        </StackPanel>
 
-        <TextBlock 
-            Grid.Row="1" Grid.Column="0"
-            FontSize="15"
-            Width="110"
-            Height="20"
-            Margin="0,0,0,100"
-            Text="Выберите фото" />
 
-        <TextBox
-            Grid.Row="1" Grid.Column="1"
-            Width="120"
-            Height="20" Margin="143,36,87,114"/>
-        <TextBlock 
-            Grid.Row="1" Grid.Column="1"
-            Height="20"
-            Width="120"
-            FontSize="15"
-            Text="Введите логин:" Margin="18,36,212,114"/>
-        <TextBlock 
-            Grid.Column="1" Grid.Row="1"
-            FontSize="15"
-            Height="20"
-            Width="120"
-            Text="Введите пароль:" Margin="18,75,212,75" />
-        <TextBox
-            Grid.Column="1" Grid.Row="1"
-            Width="120"
-            Height="20" Margin="143,75,87,75" />
-        <Button 
-            Grid.Column="1" Grid.Row="1"
-            Content="Добавить"
-            Height="25"
-            Width="80" Margin="183,110,87,35" />
+
+        <StackPanel
+            VerticalAlignment="Center"
+            Grid.Row="1" 
+            Grid.Column="1">
+            <StackPanel 
+                Margin="0 0 0 10"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock 
+                    Height="20"
+                    Width="130"
+                    FontSize="15"
+                    Text="Введите название:"/>
+                <TextBox
+                    Width="130"
+                    Height="20"/>
+
+            </StackPanel>
+
+            <StackPanel 
+                Margin="0 0 0 10"
+                Grid.Row="1" 
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock 
+                    Height="20"
+                    Width="130"
+                    FontSize="15"
+                    Text="Введите логин:"/>
+                <TextBox
+                    Width="130"
+                    Height="20"/>
+            </StackPanel>
+
+            <StackPanel 
+                Margin="0 0 0 10"
+                Grid.Row="1" 
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock 
+                    Height="20"
+                    Width="130"
+                    FontSize="15"
+                    Text="Введите пароль:"/>
+                <TextBox
+                    Width="130"
+                    Height="20"/>
+            </StackPanel>
+        </StackPanel>
+
+
+
+
         <Button 
             Grid.Column="1" Grid.Row="2"
             Background="LightGreen"
             FontSize="15"
             Height="35"
             Width="110"
+            Margin="0 0 100 0"
             Content="Создать"
-            Click="Button_Click" Margin="45,82,195,82" />
-
-
-
-
+            Click="Button_Click" />
     </Grid>
 
 </Window>
