@@ -47,12 +47,16 @@ namespace PassSafe
             }
         }
 
-       
+        private void Login_Button(object sender, RoutedEventArgs e)
+        {
+            TryLogin();
+        }
         private void TryLogin()
         {
+            var enteredLogin = LoginBox.Text;
             var enteredPass = PassBox.Password;
 
-            var user = _dbContext.user.FirstOrDefault(u => u.Password == enteredPass);
+            var user = _dbContext.user.FirstOrDefault(u => u.Login == enteredLogin && u.Password == enteredPass);
 
             if (user == null)
             {

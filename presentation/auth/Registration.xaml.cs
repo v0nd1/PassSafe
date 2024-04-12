@@ -1,4 +1,5 @@
-﻿using PassSafe.data.model;
+﻿using Microsoft.EntityFrameworkCore;
+using PassSafe.data.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,28 +78,36 @@ namespace PassSafe.presentation.auth
 
         private void Reg_Button(object sender, RoutedEventArgs e)
         {
+            var enteredLogin = LoginBox.Text; 
             var enteredPass1 = PassBox1.Password;
             var enteredTextPass1 = TextBox1.Text;
 
             var enteredPass2 = PassBox2.Password;
             var enteredTextPass2 = TextBox2.Text;
-            // Создание нового пользователя
-            var newUser = new User { Password = enteredPass1 };
+
+            var newUser = new User { Login = enteredLogin, Password = enteredPass1 };
+
             if (enteredPass1 != enteredPass2 || enteredTextPass1 != enteredTextPass2)
             {
                 MessageBox.Show("Введенные пароли не совпадают");
             }
             else
-            { 
-                // Добавление пользователя в БД
-                _dbContext.user.Add(newUser);
-                _dbContext.SaveChanges();
-                LoginForm loginWindow = new LoginForm();
-                loginWindow.Show();
-                Close();
-
+            {
+                try
+                {
+                    _dbContext.user.Add(newUser);
+                    _dbContext.SaveChanges();
+                    LoginForm loginWindow = new LoginForm();
+                    loginWindow.Show();
+                    Close();
+                }
+                catch (DbUpdateException ex)
+                {
+                    // Выводим сообщение об ошибке
+                    MessageBox.Show("Произошла ошибка при сохранении изменений в базе данных: " + ex.InnerException.Message);
+                }
+                
             }
-            
         }
     }
 }

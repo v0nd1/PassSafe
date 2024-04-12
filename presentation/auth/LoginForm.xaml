@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PassSafe"
         mc:Ignorable="d"
-        Title="Вход" Height="265" Width="365" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Вход" Height="365" Width="365" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black"/>
@@ -33,6 +33,23 @@
 
         <Grid Name="Form" Grid.Row="1">
             <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <TextBlock 
+                    Text="Введите логин:"
+                    Margin="0, 0, 0, 10"
+                    FontWeight="SemiBold"/>
+
+                <TextBox
+                    x:Name="LoginBox"
+                    Height="40" 
+                    Width="228" 
+                    MaxLength="50"
+                    HorizontalAlignment="Center" 
+                    Background="#FF9ADDF7"
+                    VerticalContentAlignment="Center"
+                    Margin="0, 0, 0, 0"
+                    FontSize="20"/>
+
 
                 <TextBlock 
                     Text="Введите пароль:"
