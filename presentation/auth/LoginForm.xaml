@@ -106,7 +106,7 @@
                             Click="To_Reg_Button"
                             Background="Transparent">
                         <TextBlock HorizontalAlignment="Center">
-                                Войти
+                                Регистрация
                         </TextBlock>
                     </Button>
                 </StackPanel>
