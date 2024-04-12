@@ -1,4 +1,5 @@
-﻿using PassSafe.presentation.auth;
+﻿using PassSafe.data.model;
+using PassSafe.presentation.auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,19 +21,15 @@ namespace PassSafe
     /// </summary>
     public partial class LoginForm : Window
     {
+        private readonly PassItemContext _dbContext;
         public LoginForm()
         {
             InitializeComponent();
+            _dbContext = new PassItemContext();
             PassBox.KeyDown += PassBox_KeyDown;
             TextBox.KeyDown += TextBox_KeyDown;
         }
 
-        private string stored_pass;
-
-        public void SetPassword(string password)
-        {
-            stored_pass = password;
-        }
 
         private void PassBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -50,14 +47,16 @@ namespace PassSafe
             }
         }
 
+       
         private void TryLogin()
         {
             var enteredPass = PassBox.Password;
-            var enteredTextPass = TextBox.Text;
 
-            if (enteredPass != stored_pass && enteredTextPass != stored_pass)
+            var user = _dbContext.user.FirstOrDefault(u => u.Password == enteredPass);
+
+            if (user == null)
             {
-                MessageBox.Show("Ошибка пароля");
+                MessageBox.Show("Ошибка входа");
             }
             else
             {
@@ -91,24 +90,6 @@ namespace PassSafe
             Registration registration = new Registration();
             registration.Show();
             Close();
-        }
-
-        private void Login_Button(object sender, RoutedEventArgs e)
-        {
-            var enteredPass = PassBox.Password;
-            var enteredTextPass = TextBox.Text;
-
-            if (enteredPass != stored_pass && enteredTextPass != stored_pass)
-            {
-                MessageBox.Show("Ошибка пароля");
-            }
-            else
-            {
-                MenuWindow menuWindow = new MenuWindow();
-                menuWindow.Show();
-                Close();
-
-            }
         }
     }
 }

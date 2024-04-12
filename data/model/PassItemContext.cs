@@ -11,6 +11,7 @@ namespace PassSafe.data.model
     public class PassItemContext : DbContext
     {
         public DbSet<PassItem> passItem { get; set; }
+        public DbSet<User> user { get; set; }
 
         public string path = @"C:\Temp\passItems.db";
 

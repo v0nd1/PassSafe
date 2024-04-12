@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="data\model\UserData.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Icon\logoReg.png" />
     <None Remove="Images\bad.png" />
     <None Remove="Images\bd.png" />
@@ -47,6 +51,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Prism.Core" Version="8.1.97" />
   </ItemGroup>
 

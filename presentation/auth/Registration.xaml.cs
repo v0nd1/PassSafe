@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PassSafe.data.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,12 @@ namespace PassSafe.presentation.auth
     /// </summary>
     public partial class Registration : Window
     {
+
+        private readonly PassItemContext _dbContext;
         public Registration()
         {
             InitializeComponent();
+            _dbContext = new PassItemContext();
         }
 
 
@@ -71,7 +75,6 @@ namespace PassSafe.presentation.auth
             Close();
         }
 
-
         private void Reg_Button(object sender, RoutedEventArgs e)
         {
             var enteredPass1 = PassBox1.Password;
@@ -79,20 +82,23 @@ namespace PassSafe.presentation.auth
 
             var enteredPass2 = PassBox2.Password;
             var enteredTextPass2 = TextBox2.Text;
-
+            // Создание нового пользователя
+            var newUser = new User { Password = enteredPass1 };
             if (enteredPass1 != enteredPass2 || enteredTextPass1 != enteredTextPass2)
             {
                 MessageBox.Show("Введенные пароли не совпадают");
             }
             else
-            {
+            { 
+                // Добавление пользователя в БД
+                _dbContext.user.Add(newUser);
+                _dbContext.SaveChanges();
                 LoginForm loginWindow = new LoginForm();
-                loginWindow.SetPassword(enteredPass1);
                 loginWindow.Show();
                 Close();
 
             }
+            
         }
-
     }
 }

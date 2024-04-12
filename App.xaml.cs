@@ -1,4 +1,5 @@
-﻿using PassSafe.presentation.auth;
+﻿using PassSafe.data.model;
+using PassSafe.presentation.auth;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,5 +15,6 @@ namespace PassSafe
     /// </summary>
     public partial class App
     {
+       
     }
 }
