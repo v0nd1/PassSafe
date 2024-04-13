@@ -1,4 +1,6 @@
-﻿using PassSafe.model;
+﻿using PassSafe.data.events;
+using PassSafe.data.model;
+using PassSafe.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +23,31 @@ namespace PassSafe
     /// </summary>
     public partial class Fav : Page
     {
+        private readonly PassItemContext _context;
+        public List<PassItem> FavoritePassItems { get; set; }
+
+        
         public Fav()
         {
             InitializeComponent();
-            DataContext = new ItemsViewModel();
+            _context = new PassItemContext();
+            LoadPassItems();
+            DataContext = this;
+        }
+
+        private void LoadPassItems()
+        {
+            FavoritePassItems = _context.passItem.Where(item => item.Category == "Favorites").ToList();
+        }
+        public event EventHandler<PassItemEvent> PassItemClicked;
+
+        private void PassItem_Click(object sender, RoutedEventArgs e)
+        {
+            // Получаем выбранный PassItem
+            PassItem selectedPassItem = ((Button)sender).DataContext as PassItem;
+
+            // Вызываем событие, передавая информацию о выбранном пароле
+            PassItemClicked?.Invoke(this, new PassItemEvent(selectedPassItem));
         }
     }
 }

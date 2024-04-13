@@ -1,4 +1,5 @@
 ﻿using PassSafe.data.events;
+using PassSafe.data.model;
 using PassSafe.model;
 using System;
 using System.Collections.Generic;
@@ -22,12 +23,38 @@ namespace PassSafe
     /// </summary>
     public partial class AllPasses : Page
     {
-        private ItemsViewModel _viewModel;
+        private readonly PassItemContext _context;
+
+        // Свойство для привязки данных в XAML
+        public List<PassItem> AllPassItems { get; set; }
+
+        public event EventHandler<PassItemEvent> PassItemClicked;
         public AllPasses()
         {
             InitializeComponent();
-            _viewModel = new ItemsViewModel();
-            DataContext = _viewModel;
+
+            // Создаем экземпляр PassItemContext
+            _context = new PassItemContext();
+
+            // Загружаем PassItem из базы данных
+            LoadPassItems();
+
+            // Устанавливаем список PassItem в качестве контекста данных страницы
+            DataContext = this;
+        }
+
+        private void LoadPassItems()
+        {
+            // Получаем все PassItem из базы данных
+            AllPassItems = _context.passItem.ToList();
+        }
+        private void PassItem_Click(object sender, RoutedEventArgs e)
+        {
+            // Получаем выбранный PassItem
+            PassItem selectedPassItem = ((Button)sender).DataContext as PassItem;
+
+            // Вызываем событие, передавая информацию о выбранном пароле
+            PassItemClicked?.Invoke(this, new PassItemEvent(selectedPassItem));
         }
 
 

@@ -1,4 +1,6 @@
-﻿using PassSafe.model;
+﻿using PassSafe.data.events;
+using PassSafe.data.model;
+using PassSafe.model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +23,28 @@ namespace PassSafe
     /// </summary>
     public partial class Systems : Page
     {
+        private readonly PassItemContext _context;
+        public List<PassItem> SystemsPassItem { get; set; }
         public Systems()
         {
             InitializeComponent();
-            DataContext = new ItemsViewModel();
+            _context = new PassItemContext();
+            LoadPassItems();
+            DataContext = this;
+        }
+        private void LoadPassItems()
+        {
+            SystemsPassItem = _context.passItem.Where(item => item.Category == "Systems").ToList();
+        }
+        public event EventHandler<PassItemEvent> PassItemClicked;
+
+        private void PassItem_Click(object sender, RoutedEventArgs e)
+        {
+            // Получаем выбранный PassItem
+            PassItem selectedPassItem = ((Button)sender).DataContext as PassItem;
+
+            // Вызываем событие, передавая информацию о выбранном пароле
+            PassItemClicked?.Invoke(this, new PassItemEvent(selectedPassItem));
         }
     }
 }

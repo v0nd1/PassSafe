@@ -1,6 +1,9 @@
 ﻿using PassSafe.data.events;
 using PassSafe.model;
+using System;
 using System.Windows;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 
 namespace PassSafe
 {
@@ -9,43 +12,116 @@ namespace PassSafe
     /// </summary>
     public partial class MenuWindow : Window
     {
-
-        private ItemsViewModel _viewModel;
         public MenuWindow()
         {
             InitializeComponent();
-            FramePass.Content = new AllPasses();
-            _viewModel = new ItemsViewModel();
-            DataContext = _viewModel;
+
+            // Создайте экземпляры страниц
+            AllPasses allPassesPage = new AllPasses();
+
+            // Подпишитесь на события для каждой страницы
+            allPassesPage.PassItemClicked += AllPassesPage_PassItemClicked;
+
+            // Установите страницу Fav в качестве контента для FramePass по умолчанию
+            FramePass.Content = allPassesPage;
+        }
+
+        private void AllPassesPage_PassItemClicked(object sender, PassItemEvent e)
+        {
+            // Обработка нажатия на элемент на странице AllPasses
+            PassItem selectedPassItem = e.SelectedPassItem;
+            UpdateUI(selectedPassItem);
+        }
+
+        private void FavPage_Clicked(object sender, PassItemEvent e)
+        {
+            // Обработка нажатия на элемент на странице Fav
+            PassItem selectedPassItem = e.SelectedPassItem;
+            UpdateUI(selectedPassItem);
+        }
+        private void WalletPage_Clicked(object sender, PassItemEvent e)
+        {
+            // Обработка нажатия на элемент на странице Fav
+            PassItem selectedPassItem = e.SelectedPassItem;
+            UpdateUI(selectedPassItem);
+        }
+        private void CardsPage_Clicked(object sender, PassItemEvent e)
+        {
+            // Обработка нажатия на элемент на странице Fav
+            PassItem selectedPassItem = e.SelectedPassItem;
+            UpdateUI(selectedPassItem);
+        }
+        private void SystemsPage_Clicked(object sender, PassItemEvent e)
+        {
+            // Обработка нажатия на элемент на странице Fav
+            PassItem selectedPassItem = e.SelectedPassItem;
+            UpdateUI(selectedPassItem);
+        }
+
+        private void SocSPage_Clicked(object sender, PassItemEvent e)
+        {
+            // Обработка нажатия на элемент на странице Fav
+            PassItem selectedPassItem = e.SelectedPassItem;
+            UpdateUI(selectedPassItem);
+        }
+
+        private void UpdateUI(PassItem selectedPassItem)
+        {
+            // Обновляем информацию в нижнем меню на основе выбранного пароля
+            TitleBlock.Text = selectedPassItem.Title;
+            Icon.Source = new BitmapImage(new Uri(selectedPassItem.ImageSource, UriKind.RelativeOrAbsolute));
+            LoginBlock.Text = selectedPassItem.Login;
+            PassBlock.Text = selectedPassItem.Password;
+            // Обновите другие элементы интерфейса здесь
+        }
+        private void Frame_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+            if (e.Content is AllPasses allPassesPage)
+            {
+                allPassesPage.PassItemClicked -= AllPassesPage_PassItemClicked;
+            }
+        }
+       
+        private void Page1_Click(object sender, RoutedEventArgs e)
+        {
+            AllPasses allPassesPage = new AllPasses();
+            allPassesPage.PassItemClicked += AllPassesPage_PassItemClicked;
+            FramePass.Content = allPassesPage;
         }
         private void Page2_Click(object sender, RoutedEventArgs e)
         {
-            FramePass.Content = new Fav();
+            Fav favPage = new Fav();
+            favPage.PassItemClicked += FavPage_Clicked;
+            FramePass.Content = favPage;
         }
 
-        private void Page1_Click(object sender, RoutedEventArgs e)
-        {
-            FramePass.Content = new AllPasses();
-        }
 
         private void Page3_Click(object sender, RoutedEventArgs e)
         {
-            FramePass.Content = new SocS();
+            SocS socsPage = new SocS();
+            socsPage.PassItemClicked += SocSPage_Clicked;
+            FramePass.Content = socsPage;
         }
 
         private void Page4_Click(object sender, RoutedEventArgs e)
         {
-            FramePass.Content = new Cards();
+            Cards cardsPage = new Cards();
+            cardsPage.PassItemClicked += CardsPage_Clicked;
+            FramePass.Content = cardsPage;
         }
 
         private void Page5_Click(object sender, RoutedEventArgs e)
         {
-            FramePass.Content = new Wallet();
+            Wallet walletPage = new Wallet();
+            walletPage.PassItemClicked += WalletPage_Clicked;
+            FramePass.Content = walletPage;
         }
 
         private void Page6_Click(object sender, RoutedEventArgs e)
         {
-            FramePass.Content = new Systems();
+            Systems systemsPage = new Systems();
+            systemsPage.PassItemClicked += SystemsPage_Clicked;
+            FramePass.Content = systemsPage;
         }
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
@@ -55,6 +131,12 @@ namespace PassSafe
         }
 
         private void GenerPassButton_Click(object sender, RoutedEventArgs e)
+        {
+            Generator_Window generator_Window = new Generator_Window();
+            generator_Window.Show();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
         {
             Generator_Window generator_Window = new Generator_Window();
             generator_Window.Show();

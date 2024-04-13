@@ -14,8 +14,8 @@
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel 
-                            Orientation="Horizontal"
                             Margin="0 0 0 0"
+                            Orientation="Horizontal"
                             ItemWidth="120" 
                             ItemHeight="100"
                             Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" />
@@ -25,14 +25,13 @@
                     <DataTemplate>
                         <Button 
                             Background="Transparent"
-                            BorderThickness="0">   
+                            Click="PassItem_Click"
+                            BorderThickness="0">
                             <StackPanel Orientation="Vertical" Margin="0 0 0 0" Background="Transparent">
                                 <Image Source="{Binding ImageSource}" Width="60" Height="60" HorizontalAlignment="Center"/>
                                 <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                             </StackPanel>
                         </Button>
-
-
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

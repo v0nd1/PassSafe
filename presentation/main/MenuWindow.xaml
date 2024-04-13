@@ -197,11 +197,12 @@
                     HorizontalAlignment="Left"
                     Margin="10 10 0 0 ">
                     <Image 
+                        x:Name="Icon"
                         Source="/Images/telegram.png" 
                         Height="52" Width="50" 
                         HorizontalAlignment="Center"/>
                     <TextBlock
-                        x:Name="TitleBox"
+                        x:Name="TitleBlock"
                         Text="Telegram"
                         Margin="7 0 0 0"
                         FontSize="20"
@@ -212,10 +213,12 @@
                         Width="20"/>
                 </StackPanel>
                 <TextBlock 
+                    x:Name="LoginBlock"
                     Margin=" 0 0 300 10"
                     Text="Логин: huggy"
                     Width="74" />
                 <TextBlock 
+                     x:Name="PassBlock"
                     Margin=" 0 0 300 0"
                     Text="Пароль: **** " 
                     Width="75"/>

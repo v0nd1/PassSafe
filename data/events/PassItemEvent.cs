@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PassSafe.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,11 @@ namespace PassSafe.data.events
 {
     public class PassItemEvent : EventArgs
     {
-        public PassItemEvent(string title)
+        public PassItemEvent(PassItem selectedPassItem)
         {
-            Title = title;
+            SelectedPassItem = selectedPassItem;
         }
 
-        public string Title { get; }
+        public PassItem SelectedPassItem { get; } // Свойство, содержащее выбранный элемент PassItem
     }
 }

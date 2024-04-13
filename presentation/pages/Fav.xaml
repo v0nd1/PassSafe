@@ -19,13 +19,14 @@
                             ItemWidth="120" 
                             ItemHeight="100"
                             Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" />
-                        <!-- WrapPanel с фиксированными размерами элементов и привязкой ширины к ширине ScrollViewer для правильного отображения прокрутки -->
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
-
                     <DataTemplate>
-                        <Button Background="Transparent" BorderThickness="0">
+                        <Button 
+                            Background="Transparent"
+                            Click="PassItem_Click"
+                            BorderThickness="0">
                             <StackPanel Orientation="Vertical" Margin="0 0 0 0" Background="Transparent">
                                 <Image Source="{Binding ImageSource}" Width="60" Height="60" HorizontalAlignment="Center"/>
                                 <TextBlock Text="{Binding Title}" HorizontalAlignment="Center" Margin="0,5,0,0"/>
