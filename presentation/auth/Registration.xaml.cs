@@ -85,6 +85,13 @@ namespace PassSafe.presentation.auth
             var enteredPass2 = PassBox2.Password;
             var enteredTextPass2 = TextBox2.Text;
 
+            if (string.IsNullOrEmpty(enteredLogin) || string.IsNullOrEmpty(enteredPass1) || string.IsNullOrEmpty(enteredPass2) || string.IsNullOrEmpty(enteredTextPass1) || string.IsNullOrEmpty(enteredTextPass2))
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля");
+                return; 
+            }
+
+
             var newUser = new User { Login = enteredLogin, Password = enteredPass1 };
 
             if (enteredPass1 != enteredPass2 || enteredTextPass1 != enteredTextPass2)
