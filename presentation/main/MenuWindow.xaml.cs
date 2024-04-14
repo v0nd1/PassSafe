@@ -1,7 +1,10 @@
 ﻿using PassSafe.data.events;
+using PassSafe.data.model;
 using PassSafe.model;
+using PassSafe.presentation.delete;
 using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 
@@ -138,8 +141,8 @@ namespace PassSafe
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            Generator_Window generator_Window = new Generator_Window();
-            generator_Window.Show();
+           Del_Item del_Item = new Del_Item();  
+           del_Item.Show();
         }
     }
 }

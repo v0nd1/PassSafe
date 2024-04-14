@@ -1,0 +1,44 @@
+﻿<Window x:Class="PassSafe.presentation.delete.Del_Item"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PassSafe.presentation.delete"
+        mc:Ignorable="d"
+         Title="Удаление" Height="250" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black"/>
+            <GradientStop Color="#FF2AAFE5" Offset="0.513"/>
+            <GradientStop Color="#FF020202"/>
+            <GradientStop Color="#FFC0ECFD"/>
+            <GradientStop Color="#FF1D769A" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid Background="Transparent">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="MyItemsControl" ItemsSource="{Binding AllPassItems}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel 
+                            Margin="0 0 0 0"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            ItemWidth="300" 
+                            ItemHeight="100"
+                            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <UniformGrid Rows="1" Columns="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15">
+                            <Image Source="{Binding ImageSource}" Width="60" Height="60" HorizontalAlignment="Center"/>
+                            <TextBlock FontSize="18" FontWeight="Bold" Text="{Binding Title}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0"/>
+                            <Button Background="Red" Width="60" Height="30" Content="Удалить" Click="DeleteButton_Click"/>
+                        </UniformGrid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Window>
